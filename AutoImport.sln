@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoImport", "AutoImport\AutoImport.csproj", "{DD11A1BC-7065-4716-8A3C-B19EA357A161}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoImport.Vsix", "AutoImport.Vsix\AutoImport.Vsix.csproj", "{5E439E54-58EC-47DE-BB91-301F2EE85F2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD11A1BC-7065-4716-8A3C-B19EA357A161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD11A1BC-7065-4716-8A3C-B19EA357A161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD11A1BC-7065-4716-8A3C-B19EA357A161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD11A1BC-7065-4716-8A3C-B19EA357A161}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E439E54-58EC-47DE-BB91-301F2EE85F2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E439E54-58EC-47DE-BB91-301F2EE85F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E439E54-58EC-47DE-BB91-301F2EE85F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E439E54-58EC-47DE-BB91-301F2EE85F2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D69D8824-714D-46CC-99C6-0018B510461E}
+	EndGlobalSection
+EndGlobal
