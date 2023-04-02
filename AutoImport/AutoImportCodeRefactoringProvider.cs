@@ -26,7 +26,7 @@ namespace AutoImport
                 return;
             }
 
-            var action = CodeAction.Create("Import and create field", c =>
+            var action = CodeAction.Create("Introduce into constructor", c =>
                 {
                     Document modifiedDocument = Refactor(context, dataModel, typeDecl, binaryExpression);
 

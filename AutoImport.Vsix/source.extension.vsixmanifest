@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="AutoImport.Sensata Technologies.ba091da9-1f15-4b24-9a05-dd98f606a88f" Version="1.0" Language="en-US" Publisher="Šarūnas Intas"/>
+        <Identity Id="AutoImport" Version="1.0" Language="en-US" Publisher="Floatas"/>
         <DisplayName>AutoImport</DisplayName>
         <Description xml:space="preserve">Automatically import and initialize services.</Description>
     </Metadata>
@@ -16,15 +16,9 @@
         <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,)" >
             <ProductArchitecture>amd64</ProductArchitecture>
         </InstallationTarget>
-        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,)" >
-            <ProductArchitecture>x86</ProductArchitecture>
-        </InstallationTarget>
 
         <InstallationTarget Id="Microsoft.VisualStudio.Ultimate" Version="[17.0,)" >
             <ProductArchitecture>amd64</ProductArchitecture>
-        </InstallationTarget>
-        <InstallationTarget Id="Microsoft.VisualStudio.Ultimate" Version="[17.0,)" >
-            <ProductArchitecture>x86</ProductArchitecture>
         </InstallationTarget>
     </Installation>
     <Dependencies>
