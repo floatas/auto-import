@@ -3,6 +3,7 @@ using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeRefactorings;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
 using System.Composition;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -14,27 +15,34 @@ namespace AutoImport
     {
         public sealed override async Task ComputeRefactoringsAsync(CodeRefactoringContext context)
         {
-            var root = await context.Document.GetSyntaxRootAsync(context.CancellationToken).ConfigureAwait(false);
-
-            var node = root.FindNode(context.Span);
-            var semanticModel = await context.Document.GetSemanticModelAsync(context.CancellationToken).ConfigureAwait(false);
-
-            CreateDataModel(node, semanticModel, out var dataModel, out var typeDecl, out var binaryExpression);
-
-            if (string.IsNullOrEmpty(dataModel.NewName))
+            try
             {
-                return;
-            }
+                var root = await context.Document.GetSyntaxRootAsync(context.CancellationToken).ConfigureAwait(false);
 
-            var action = CodeAction.Create("Introduce into constructor", c =>
+                var node = root.FindNode(context.Span);
+                var semanticModel = await context.Document.GetSemanticModelAsync(context.CancellationToken).ConfigureAwait(false);
+
+                CreateDataModel(node, semanticModel, out var dataModel, out var typeDecl, out var binaryExpression);
+
+                if (string.IsNullOrEmpty(dataModel.NewName))
                 {
-                    Document modifiedDocument = Refactor(context, dataModel, typeDecl, binaryExpression);
-
-                    return Task.FromResult(modifiedDocument.Project.Solution);
+                    return;
                 }
-            );
 
-            context.RegisterRefactoring(action);
+                var action = CodeAction.Create("Introduce into constructor", c =>
+                    {
+                        Document modifiedDocument = Refactor(context, dataModel, typeDecl, binaryExpression);
+
+                        return Task.FromResult(modifiedDocument.Project.Solution);
+                    }
+                );
+
+                context.RegisterRefactoring(action);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private Document Refactor(CodeRefactoringContext context, DataModel dataModel, IdentifierNameSyntax typeDecl, BinaryExpressionSyntax binaryExpression)
